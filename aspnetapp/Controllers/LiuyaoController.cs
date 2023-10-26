@@ -17,9 +17,16 @@ namespace aspnetapp.Controllers;
 public class LiuyaoController : ControllerBase
 {
     [HttpPost]
-    public async Task<ActionResult<LiuyaoResponse>> PostCounter(LiuyaoRequest data)
+    public async Task<ActionResult<LiuyaoResponse>> PostGua(LiuyaoRequest data)
     {
-        var input = JsonSerializer.Deserialize<InputV2>(data.Content)!;
+        var content = data.Content.Split(' ');
+        var input = new InputV2
+        {
+            月支 = content[0],
+            日干支 = content[1],
+            卦名 = content[2],
+            用神 = content[3]
+        };
         var gua = new FactoryV2().Create(input);
 
         if (!Enum.TryParse(input.用神, out 六亲 用神))
