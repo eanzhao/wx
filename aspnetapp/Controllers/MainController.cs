@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace aspnetapp.Controllers;
 
-[Route("api/v1")]
+[Route("api/liuyao")]
 [ApiController]
 public class MainController : ControllerBase
 {
@@ -15,7 +15,7 @@ public class MainController : ControllerBase
     };
 
     [HttpPost]
-    public async Task<ActionResult<IReply>> Post(IUserMessage message)
+    public async Task<ActionResult<IReply>> Post(TextUserMessage message)
     {
         if (message.MsgType == null)
         {
