@@ -2,7 +2,6 @@ using System.Text.Json.Serialization;
 
 namespace aspnetapp.Liuyao;
 
-
 public class GuaMessage
 {
     [JsonPropertyName("月支")] public string 月支 { get; set; }
