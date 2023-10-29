@@ -58,7 +58,7 @@ public class LiuyaoTextMessageService
                 throw new Exception("没有给出正确的卦象");
             }
 
-            foreach (var wushen in Enum.GetNames(typeof(六爻五神)))
+            foreach (var wushen in Enum.GetNames(typeof(六亲)))
             {
                 foreach (var piece in pieces)
                 {
