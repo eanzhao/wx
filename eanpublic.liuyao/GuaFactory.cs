@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
-
 namespace aspnetapp.Liuyao;
 
-public class FactoryV2
+public class GuaFactory
 {
     public 爻卦 Create(string month, string day, string guaName, List<int>? 动爻 = null)
     {
@@ -48,9 +45,9 @@ public class FactoryV2
         return yaoGua;
     }
 
-    public 爻卦 Create(InputV2 input)
+    public 爻卦 Create(GuaMessage guaMessage)
     {
-        return Create(input.月支, input.日干支, input.卦名);
+        return Create(guaMessage.月支, guaMessage.日干支, guaMessage.卦名);
     }
 
     private (六十四卦, 六十四卦) 拆卦(string guaName)

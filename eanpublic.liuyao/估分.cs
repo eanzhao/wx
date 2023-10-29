@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
-
 namespace aspnetapp.Liuyao;
 
 public class 估分
@@ -26,12 +23,6 @@ public class 估分
 
     public override string ToString()
     {
-        var str = string.Empty;
-        foreach (var pair in 阵营得分)
-        {
-            str += $"\n{pair.Key}: {pair.Value}";
-        }
-
-        return str;
+        return 阵营得分.Aggregate(string.Empty, (current, pair) => current + $"{pair.Key}: {pair.Value}\n");
     }
 }

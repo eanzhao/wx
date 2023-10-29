@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 namespace aspnetapp.Liuyao;
 
 
-public class InputV2
+public class GuaMessage
 {
     [JsonPropertyName("月支")] public string 月支 { get; set; }
     [JsonPropertyName("日干支")] public string 日干支 { get; set; }
