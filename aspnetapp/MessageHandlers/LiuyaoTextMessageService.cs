@@ -36,11 +36,12 @@ public class LiuyaoTextMessageService
         {
             var pieces = message.Split(' ');
 
+            var isContain = false;
             foreach (var liushisigua in Enum.GetNames<六十四卦>())
             {
-                if (!message.Contains(liushisigua))
+                if (message.Contains(liushisigua))
                 {
-                    throw new Exception("没有给出正确的卦象");
+                    isContain = true;
                 }
 
                 foreach (var piece in pieces)
@@ -50,6 +51,11 @@ public class LiuyaoTextMessageService
                         input.卦名 = piece;
                     }
                 }
+            }
+
+            if (!isContain)
+            {
+                throw new Exception("没有给出正确的卦象");
             }
 
             foreach (var wushen in Enum.GetNames(typeof(六爻五神)))
