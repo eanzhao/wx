@@ -8,6 +8,12 @@ public class LiuyaoTextMessageService
     {
         try
         {
+            var pieces = message.Split(' ');
+            if (pieces.Length == 1)
+            {
+                return JiaoShiYiLin(message);
+            }
+
             var input = Convert(message);
             var gua = new GuaFactory().Create(input);
 
@@ -107,5 +113,19 @@ public class LiuyaoTextMessageService
         }
 
         return input;
+    }
+
+    private string JiaoShiYiLin(string message)
+    {
+        var pieces = message.Split('之');
+        var path = $"Contents/焦氏易林.{pieces[0]}.txt";
+        if (!File.Exists(path))
+        {
+            return $"没找到关于{pieces[0]}卦的知识库";
+        }
+
+        var content = File.ReadAllLines(path);
+        var index = content.ToList().IndexOf(message);
+        return index == -1 ? $"没找到关于{message}的知识" : content[index + 1];
     }
 }

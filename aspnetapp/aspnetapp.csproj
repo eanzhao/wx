@@ -16,6 +16,11 @@
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.0" />
   </ItemGroup>
 
-
+  <ItemGroup>
+    <None Remove="Contents\焦氏易林.*.txt" />
+    <Content Include="Contents\焦氏易林.*.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 
 </Project>
